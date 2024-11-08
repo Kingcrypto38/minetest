@@ -1,4 +1,4 @@
-ARG DOCKER_IMAGE=alpine:3.16
+ARG DOCKER_IMAGE=alpine:3.17.10
 FROM $DOCKER_IMAGE AS dev
 
 ENV IRRLICHT_VERSION master
@@ -62,7 +62,7 @@ RUN cmake -B build \
 	cmake --build build && \
 	cmake --install build
 
-ARG DOCKER_IMAGE=alpine:3.16
+ARG DOCKER_IMAGE=alpine:3.17.10
 FROM $DOCKER_IMAGE AS runtime
 
 RUN apk add --no-cache curl gmp libstdc++ libgcc libpq jsoncpp zstd-libs \
